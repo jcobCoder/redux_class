@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import Home from './home';
-import Login from './login';
+// App.js
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment } from './slice';
+//import { exampleAction } from './actions';
+import { fetchThunk, increment } from './slice';
 
+const App = () => {
+  const dispatch = useDispatch();
+const status=useSelector((state)=>state.counter.status)
+const data=useSelector((state)=>state.counter.data)
+
+
+  // const handleClick = () => {
+  //   dispatch(increment('Hello'));
+  // };
+
+useEffect(()=>{
+  dispatch(fetchThunk())
+},[])
  
 
-// action creator
-//store 
-// reducer 
-
-//useslector
-
-function App() {
-
-const data=useSelector((state)=>state.counter)
-
-const makechage=useDispatch()
-
-const incre=()=>{
-  makechage(increment())
-
-}
+  console.log(data)
  
   return (
     <div>
-      <button onClick={incre}>increment</button>
-      <h1>{data}</h1> 
+      <h2>{status}</h2>
+       {data && data.map((e)=>{
+        return(<h3>{e.name}</h3>)
+       })}
+      
     </div>
   );
-}
+};
 
 export default App;

@@ -4,6 +4,16 @@
       "name": "pakistan",
       "age": 200,
       "id": 1
+    },
+    {
+      "name": "india",
+      "age": 200,
+      "id": 1
+    },
+    {
+      "name": "USA",
+      "age": 200,
+      "id": 1
     }
   ]
 }
